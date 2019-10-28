@@ -16,10 +16,10 @@ pipeline {
         sh './gradlew test'
       }
     }
-    post {
-      always {
-        junit 'build/**/*.xml'
-      }
+  }
+  post {
+    always {
+      junit 'build/**/*.xml'
     }
   }
 }
