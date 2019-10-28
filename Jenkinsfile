@@ -18,6 +18,11 @@ pipeline {
       steps {
         sh './gradlew test'
       }
+    }
+    stage('Report') {
+      when {
+        branch 'master'
+      }
       steps {
         junit 'build/**/*.xml'
       }
