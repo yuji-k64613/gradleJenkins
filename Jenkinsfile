@@ -23,9 +23,11 @@ pipeline {
       }
     }
   }
-#  post {
-#    always {
-#      junit 'build/**/*.xml'
-#    }
-#  }
+  /*
+  post {
+    always {
+      junit 'build/**/*.xml'
+    }
+  }
+  */
 }
