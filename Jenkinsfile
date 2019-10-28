@@ -11,15 +11,10 @@ pipeline {
         echo "${MESSAGE}"
       }
     }
-    stage('Example Deploy') {
+    stage('Test') {
       when {
         branch 'master'
       }
-      steps {
-        echo 'branch is master'
-      }
-    }
-    stage('Test') {
       steps {
         sh './gradlew test'
       }
