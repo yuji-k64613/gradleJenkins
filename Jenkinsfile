@@ -13,7 +13,7 @@ pipeline {
     }
     stage('Test') {
       when {
-        branch 'develop'
+        branch 'master'
       }
       steps {
         sh './gradlew test'
