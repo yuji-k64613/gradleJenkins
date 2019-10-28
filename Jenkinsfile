@@ -2,18 +2,19 @@ pipeline {
   agent any
 
   environment {
-      MESSAGE = 'Hello, world'
+      MESSAGE_BEGIN = 'Hello, world'
+      MESSAGE_END = 'Done...'
   }
 
   stages {
     stage('Start') {
       steps {
-        echo "${MESSAGE}"
+        echo "${MESSAGE_BEGIN}"
       }
     }
     stage('Test') {
       when {
-        branch 'master'
+        branch 'develop'
       }
       steps {
         sh './gradlew test'
@@ -21,18 +22,16 @@ pipeline {
     }
     stage('Report') {
       when {
-        branch 'master'
+        branch 'develop'
       }
       steps {
         junit 'build/**/*.xml'
       }
     }
   }
-  /*
   post {
     always {
-      junit 'build/**/*.xml'
+      echo "${MESSAGE_END}"
     }
   }
-  */
 }
